@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callback&promisses&async</title>
+  </head>
+  <body>
+    <h1 id="title"></h1>
+    <button onclick="">click me</button>
+    <script>
+        //call back thing
+      congrats = (name) => {
+        document.getElementById("title").innerHTML = name;
+      };
+      promptData = (callback) => {
+        let name = prompt("Enter your name");
+        callback(congrats(name));
+      };
+      promptData();
+      //promisses
+      
+    </script>
+  </body>
+</html>

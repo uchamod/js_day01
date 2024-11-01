@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>title</h1>
+    <button id="btn">click</button>
+    <input type="text" id="txt" />
+    <script>
+      //ceate object with properties and methods
+      let student = {
+        name: "kamal",
+        age: 10,
+        hello: function () {
+          console.log("hello");
+        },
+      };
+      //add new property
+      student.address = "matara";
+      //add new method
+      student.getAddress = function () {
+        console.log(student.address);
+      };
+      //sheck object references
+      Object.keys(student);
+      let elemant = document.getElementById("btn");
+      elemant.onclick = () => {
+        alert("bytton on focus");
+      };
+      const txt = document.getElementById("txt");
+      txt.onchange = () => {
+        alert("value is changed");
+      };
+
+      //constuctor function
+      function Person(name, age, addr) {
+        this.name = name;
+        this.age = age;
+        this.address = addr;
+        this.sayHi = function () {
+          console.log("hello");
+        };
+      }
+      student1 = {
+        data: function () {
+          console.log(first + " " + last);
+        },
+      };
+      student2 = {
+        first: "chamod",
+        last: "udara",
+      };
+
+      student1.data.call(student2);
+    </script>
+  </body>
+</html>

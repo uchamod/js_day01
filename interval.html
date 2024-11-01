@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="click">click</button>
+    <button id="ani">animate</button>
+    <button id="stop">stop</button>
+
+    <h2 id="txt">text</h2>
+  </body>
+  <script>
+    let txt = document.getElementById("txt");
+    let marginL = 1;
+    animate = () => {
+      setInterval(function () {
+        marginL += 10;
+        txt.style.marginLeft = marginL + "px";
+      }, 1000);
+    };
+
+    document.getElementById("ani").addEventListener("click", animate);
+  </script>
+</html>

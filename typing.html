@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .progess {
+        width: 100%;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <h1>typing game</h1>
+    <h3 id="letter"></h3>
+    <p>
+      Corrects : <span id="correct">0</span> <br />Wrongs :
+      <span id="wrongs">0</span><br />
+      Miss : <span id="miss">0</span>
+    </p>
+
+    <progress id="progress" class="progess" value="0" max="100"></progress
+    ><br />
+    <input type="range" id="speed" min="100" max="1000" />
+  </body>
+  <script>
+    let display = document.getElementById("letter");
+    let correct = document.getElementById("correct");
+    let wrong = document.getElementById("wrongs");
+    let progress = document.getElementById("progress");
+    let miss = document.getElementById("miss");
+    let speed = document.getElementById("speed");
+    let delay = 1000;
+    let timer;
+    showRandom = () => {
+      const alph = "abcdefghijklmnopqrstuvwsyz";
+      let random = Math.floor(Math.random() * alph.length);
+      display.innerHTML = alph[random];
+    };
+
+    document.getElementById("body").addEventListener("keyup", (e) => {
+      if (display.innerHTML == e.key) {
+        correct.innerHTML++;
+      } else {
+        wrong.innerHTML++;
+      }
+
+      showRandom();
+      startTimer();
+    });
+
+    startTimer = () => {
+      progress.value = 0;
+      clearInterval(timer);
+      timer = setInterval(function () {
+        progress.value += 10;
+        if (progress.value >= 100) {
+          miss.innerHTML++;
+          showRandom();
+          startTimer();
+        }
+      }, delay);
+    };
+    speed.onchange = function () {
+      delay = 1000 - speed.value;
+      startTimer();
+    };
+    showRandom();
+  </script>
+</html>
